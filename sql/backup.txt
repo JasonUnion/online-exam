@@ -1,0 +1,68 @@
+SELECT s.id,s.exam_number,s.student_name,s.gender,s.email,
+	g.grade_name,c.class_name
+FROM STUDENT s LEFT JOIN GRADE_STUDENT gs on s.id = gs.student_id 
+            LEFT JOIN GRADE g on gs.grade_id = g.id 
+						LEFT JOIN grade_classname gc on g.id = gc.grade_id
+						LEFT JOIN classname c on gc.classname_id = c.id
+WHERE s.ID IN
+            ( SELECT STUDENT_ID FROM TEACHER_STUDENT WHERE 
+            TEACHER_ID=(SELECT ID FROM TEACHER WHERE TEACHER_NAME='admin')) GROUP BY s.student_name
+
+
+SELECT s.id,s.exam_number,s.student_name,s.gender,s.email,
+	g.grade_name,c.class_name
+FROM STUDENT s 
+						LEFT JOIN GRADE_STUDENT gs on s.id = gs.student_id 
+            LEFT JOIN GRADE g on gs.grade_id = g.id 
+						LEFT JOIN student_classname sc on s.id = sc.student_id
+						LEFT JOIN classname c on sc.classname_id = c.id
+WHERE s.ID IN
+            ( SELECT STUDENT_ID FROM TEACHER_STUDENT WHERE 
+            TEACHER_ID=(SELECT ID FROM TEACHER WHERE TEACHER_NAME='admin')) GROUP BY s.student_name
+
+
+
+
+SELECT * FROM STUDENT WHERE ID IN( SELECT STUDENT_ID FROM TEACHER_STUDENT WHERE TEACHER_ID=
+(SELECT ID FROM TEACHER WHERE TEACHER_NAME='admin')) AND STUDENT_NAME LIKE CONCAT('test', '%') 
+
+
+求总分：
+SELECT SUM(score) from answer_paper;
+
+每一科的总分
+SELECT paper_name, SUM(score) from answer_paper GROUP BY paper_name;
+
+每一科的平均分
+SELECT paper_name, SUM(score)/count(1) from answer_paper GROUP BY paper_name;
+
+每一科最高分
+SELECT paper_name, MAX(score) from answer_paper GROUP BY paper_name;
+
+
+每一科最低分
+SELECT paper_name, min(score) from answer_paper GROUP BY paper_name;
+
+求平均分，最高分，最低分
+SELECT PAPER_NAME, MAX(SCORE) AS MAS_SCORE, MIN(SCORE) AS MIN_SCORE, SUM(SCORE)/COUNT(1) AS 
+            AVERAGE_SCORE FROM ANSWER_PAPER WHERE CHECKED='true' AND FINISHED='true' GROUP BY PAPER_NAME;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
