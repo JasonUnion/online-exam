@@ -1,0 +1,78 @@
+server:
+  port: 8769
+  contextPath: /auth
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  configLocation: classpath:/mybatis-config.xml
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+spring:
+  profiles: production
+  application:
+      name: auth-service
+# 数据源
+  datasource:
+      name: test
+      url: jdbc:mysql://127.0.0.1:3306/jpa?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password:
+      type: com.alibaba.druid.pool.DruidDataSource #使用drudi数据源
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat,wall,log4j
+      maxActive: 200
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+# redis
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+
+# 注册中心
+eureka:
+  instance:
+      hostname: localhost
+      port: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+# spring security oauth2 配置
+security:
+  sessions: if-required
+  basic:
+    enabled: false
+  oauth2:
+    resource:
+      jwt:
+        keyValue: |
+           -----BEGIN PUBLIC KEY-----
+           MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAimUKhvBhsoeSM3HkIOP/Y3RXjvonBlZnLj8oO92TyAKG53lmAoK0wZ5MTZPsfrOz2Z7CeAp6mPhUANX2RUoFwVzG7rJmgWyqGmGFNBmtYL+uVqQ80TzWi5zyzXTxgVMWiCqqw/u4AeE1qhN8chnGwhUBnpgPAPd8v57mIwg0n5JxjdYe7pgHlpvt8ZXTXd1KBxB5K7WjNlCfMf75ZEeBaplxsSfJUwKbnHQKWcY3NnpjkVR8y4jviAbkOHmGMaliM7fcsLzbosBUPDQuNlvYdjPBRfH6MMPeXRW6On3u0Um9wIYmkQS+AEgHCq4UuLOnTTqqxnGkwFYeMAAXmRyMtQIDAQAB
+           -----END PUBLIC KEY-----
+
+
+#logback配置，生产环境日志级别为 WARN 甚至更高
+logging:
+  file: logs/auth-service/auth-service-production.log
+  level:
+    root: WARN

@@ -1,0 +1,201 @@
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="index.html">考试管理</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-table"></i> 添加试题
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">添加试题</h3>
+            </div>
+            <div class="box-body">
+                <form class="form-horizontal">
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">试题类型：</label>
+                            <div class="col-md-10">
+                                <label class="radio-inline" for="type-men">
+                                    <input type="radio" name="type" id="type-men" value="选择题" checked="checked" ng-model="type"> 选择题
+                                </label>
+                                <label class="radio-inline" for="type-women" ng-show="paper.type != 'simulate' && paper.type != 'practice'">
+                                    <input type="radio" name="type" id="type-women" value="简答题" ng-model="type"> 简答题
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- 选择题 -->
+                    <div class="select" ng-show="type == '选择题'">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="select-title">题干内容：</label>
+                                <div class="col-md-10">
+                                    <input id="select-title" name="select-title" type="text" placeholder="题干内容" class="form-control input-md" ng-model="question.select.title">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" >选项内容：</label>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="optionA" class="col-md-2 control-label">
+                                    A )
+                                </label>
+                                <div class="col-md-10">
+                                    <input id="optionA" name="optionA" type="text" placeholder="" class="form-control input-md" ng-model="question.select.optionA" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="optionB" class="col-md-2 control-label">
+                                    B )
+                                </label>
+                                <div class="col-md-10">
+                                    <input id="optionB" name="optionB" type="text" placeholder="" class="form-control input-md" ng-model="question.select.optionB" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="optionC" class="col-md-2 control-label">
+                                    C )
+                                </label>
+                                <div class="col-md-10">
+                                    <input id="optionC" name="optionC" type="text" placeholder="" class="form-control input-md" ng-model="question.select.optionC" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="optionD" class="col-md-2 control-label">
+                                    D )
+                                </label>
+                                <div class="col-md-10">
+                                    <input id="optionD" name="optionD" type="text" placeholder="" class="form-control input-md" ng-model="question.select.optionD" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">答案：</label>
+                                <div class="col-md-4">
+                                    <label class="radio-inline" for="select-answer-a">
+                                        <input type="radio" name="select-answer-a" id="select-answer-a" value="optionA" checked="checked" ng-model="question.select.answer"> A
+                                    </label>
+                                    <label class="radio-inline" for="select-answer-b">
+                                        <input type="radio" name="select-answer-b" id="select-answer-b" value="optionB" checked="checked" ng-model="question.select.answer"> B
+                                    </label>
+                                    <label class="radio-inline" for="select-answer-c">
+                                        <input type="radio" name="select-answer-c" id="select-answer-c" value="optionC" checked="checked" ng-model="question.select.answer"> C
+                                    </label>
+                                    <label class="radio-inline" for="select-answer-d">
+                                        <input type="radio" name="select-answer-d" id="select-answer-d" value="optionD" checked="checked" ng-model="question.select.answer"> D
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="question-simple-analysis">解析：</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" rows="7"  id="question-select-analysis" name="question-select-analysis" placeholder="200字以内" ng-model="question.select.analysis"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">分值：</label>
+                                <div class="col-md-4">
+                                    <input type="number" ng-model="question.select.score" placeholder="分值" class="form-control" required>
+                                </div>
+                                <span class="help-button hidden-xs" uib-tooltip="输入这个题目的分值" tooltip-placement="left">?</span>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">序号：</label>
+                                <div class="col-md-4">
+                                    <input type="number" ng-model="question.select.number" placeholder="序号" class="form-control" required>
+                                </div>
+                                <span class="help-button hidden-xs" uib-tooltip="输入这个题目的序号" tooltip-placement="left">?</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- 简答题 -->
+                    <div class="simple" ng-show="type == '简答题'">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="question-simple-title">题干内容：</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" rows="6"  id="question-simple-title" name="question-simple-title" placeholder="200字以内" ng-model="question.simple.title"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="question-simple-answer">答案：</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" rows="6"  id="question-simple-answer" name="question-simple-answer" placeholder="200字以内" ng-model="question.simple.answer"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="question-simple-analysis">解析：</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" rows="7"  id="question-simple-analysis" name="question-simple-analysis" placeholder="200字以内" ng-model="question.simple.analysis"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">分值：</label>
+                                <div class="col-md-4">
+                                    <input type="number" ng-model="question.simple.score" placeholder="分值" class="form-control" required>
+                                </div>
+                                <span class="help-button hidden-xs" uib-tooltip="输入这个题目的分值" tooltip-placement="left">?</span>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">序号：</label>
+                                <div class="col-md-4">
+                                    <input type="number" ng-model="question.simple.number" placeholder="序号" class="form-control" required>
+                                </div>
+                                <span class="help-button hidden-xs" uib-tooltip="输入这个题目的序号" tooltip-placement="left">?</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="alert alert-success fade save-success" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong style="color: #ffffff;"> 保存成功！</strong>
+            </div>
+            <div class="alert alert-warning fade save-fail" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong style="color: #ffffff;"> 保存失败！</strong>
+            </div>
+            <div class="box-footer">
+                <a id="addPaper" class="btn btn-info pull-right" type="button" ng-click="submit();"><i class="glyphicon glyphicon-floppy-save"></i> 保存</a>
+            </div>
+        </div>
+    </div>
+</div>

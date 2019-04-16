@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: development
+  application:
+    name: admin-service
+  cloud:
+    config:
+      profile: development
+      label: master
+      discovery:
+        enabled: true             # 默认false，设为true表示使用注册中心中的configserver配置而不自己配置configserver的uri
+        serviceId: config-server  # 指定config server在服务发现中的serviceId
+
+# 注册中心配置
+eureka:
+  instance:
+      hostname: localhost
+      port: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/

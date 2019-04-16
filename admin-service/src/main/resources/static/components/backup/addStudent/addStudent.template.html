@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li>
+        <i class="fa fa-dashboard"></i> <a href="index.html">考生管理</a>
+      </li>
+      <li class="active">
+        <i class="fa fa-table"></i> 添加考生
+      </li>
+    </ol>
+  </div>
+</div>
+<div class="row" ng-controller="addStudentController as $ctrl">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">添加学生</h3>
+      </div>
+      <form class="form-horizontal" role="form" ng-submit="save()">
+        <div class="box-body">
+          
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">姓名 <sup class="sup-color">*</sup></label>
+            
+            <div class="col-sm-10">
+              <input type="text" ng-model="user.username" placeholder="姓名" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">考号 <sup class="sup-color">*</sup></label>
+            
+            <div class="col-sm-10">
+              <input type="number" ng-model="user.examNumber" placeholder="考号" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">班级 <sup class="sup-color">*</sup></label>
+            <div class="col-sm-10">
+              <input type="number" ng-model="user.grade" placeholder="班级" class="form-control" required>
+            </div>
+          </div>
+          
+        </div>
+        <div class="box-footer">
+        <div class="add-modal">
+
+    <button type="button" class="btn btn-default" ng-click="openComponentModal()">Open a component modal!</button>
+
+    <div ng-show="selected">Selection from a modal: {{ $ctrl.selected }}</div>
+    <div class="modal-parent">
+    </div>
+</div>
+
+          <button class="btn btn-info pull-right" type="submit"><i class="glyphicon glyphicon-floppy-save"></i> 保存</button>
+        </div>
+      </form>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

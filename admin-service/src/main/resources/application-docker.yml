@@ -1,0 +1,56 @@
+spring:
+  profiles: docker
+  application:
+    name: admin-service
+
+# 配置运行端口号
+server:
+  port: 8871
+
+# 注册中心配置
+eureka:
+  instance:
+      hostname: localhost
+      port: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+zuul:
+  routes:
+    static:
+      path: /static/**
+      url: http://localhost:8001/
+    auth-service:
+      sensitiveHeaders:
+      path: /auth/**
+      stripPrefix: false
+    exam-service: /exam/**
+    admin-service: /admin/**
+  add-proxy-headers: true
+
+security:
+  user:
+    password: none
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:8871/auth/oauth/token
+      userAuthorizationUri: http://localhost:8871/auth/oauth/authorize
+      clientId: web-app
+      preEstablishedRedirectUri: http://localhost:8871/login
+      registeredRedirectUri: http://localhost:8871/login
+      useCurrentUri: false
+
+    resource:
+          jwt:
+            keyValue: |
+              -----BEGIN PUBLIC KEY-----
+              MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAimUKhvBhsoeSM3HkIOP/Y3RXjvonBlZnLj8oO92TyAKG53lmAoK0wZ5MTZPsfrOz2Z7CeAp6mPhUANX2RUoFwVzG7rJmgWyqGmGFNBmtYL+uVqQ80TzWi5zyzXTxgVMWiCqqw/u4AeE1qhN8chnGwhUBnpgPAPd8v57mIwg0n5JxjdYe7pgHlpvt8ZXTXd1KBxB5K7WjNlCfMf75ZEeBaplxsSfJUwKbnHQKWcY3NnpjkVR8y4jviAbkOHmGMaliM7fcsLzbosBUPDQuNlvYdjPBRfH6MMPeXRW6On3u0Um9wIYmkQS+AEgHCq4UuLOnTTqqxnGkwFYeMAAXmRyMtQIDAQAB
+              -----END PUBLIC KEY-----
+
+#logback配置，生产环境日志级别为 WARN 甚至更高
+logging:
+  file: logs/admin-service/admin-service-docker.log
+  level:
+    root: WARN
+

@@ -1,0 +1,28 @@
+{
+    "name": "angular-morris",
+    "private": false,
+    "version": "1.3.0",
+    "description": "Angular.js module wrapper for Morris.js",
+    "homepage": "https://angular-morris.io",
+    "scripts": {
+        "test": "cd client && gulp test",
+        "serve": "appfy serve",
+        "serve:dist": "appfy serve --dist",
+        "install": "cd client && npm install && bower install",
+        "build": "appfy build client --heroku",
+        "build-module": "appfy module angular-morris -b"
+    },
+    "main": "build/module/angular-morris/angular-morris.min.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/st1s/angular-morris.git"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "tags": [
+        "angular.js",
+        "morris.js",
+        "charts"
+    ]
+}

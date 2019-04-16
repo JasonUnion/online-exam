@@ -1,0 +1,292 @@
+<div class="header-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 col-sm-6">
+                <div class="header-top-first clearfix hidden-xs">
+                    客服电话 : 010-25418796
+                </div>
+            </div>
+            <div class="col-xs-10 col-sm-6">
+                <div id="header-top-second" class="clearfix">
+                    <div class="header-top-dropdown">
+                        <div class="btn-group dropdown hidden-xs">
+                            <a type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i> 搜索</a>
+                            <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                <li>
+                                    <form role="search" class="search-box">
+                                        <div class="form-group has-feedback">
+                                            <input type="text" class="form-control" placeholder="Search">
+                                            <i class="fa fa-search form-control-feedback"></i>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-group dropdown">
+                            <a type="button" href="/login" class="btn dropdown-toggle" ng-show="!authenticated" ng-cloak><i class="fa fa-user"></i> 登录</a>
+                        </div>
+                        <div class="btn-group dropdown">
+                            <a type="button" class="btn dropdown-toggle" ng-show="authenticated" data-toggle="dropdown" ng-cloak><i class="fa fa-user"></i> <span ng-bind="user.username"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                <li>
+                                    <form id="changePwdForm" class="login-form">
+                                        <label class="control-label text-center" style="padding-left: 45%;">修改密码</label>
+                                        <div class="divider"></div>
+                                        <div class="form-group has-feedback">
+                                            <label class="control-label">旧密码</label>
+                                            <input type="password" class="form-control" id="oldPwd" name="oldPwd" placeholder="">
+                                            <i class="fa fa-lock form-control-feedback"></i>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <label class="control-label">新密码</label>
+                                            <input type="password" class="form-control" id="newPwd" name="newPwd" placeholder="">
+                                            <i class="fa fa-lock form-control-feedback"></i>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <label class="control-label">再次输入密码</label>
+                                            <input type="password" class="form-control" id="newPwdTwice" name="newPwdTwice" placeholder="">
+                                            <i class="fa fa-lock form-control-feedback"></i>
+                                        </div>
+                                        <button type="submit" class="btn btn-group btn-default btn-sm pull-right">修改</button>
+                                        <ul>
+                                            <li><a href="#">忘记密码?</a></li>
+                                        </ul>
+                                        <div class="alert alert-success fade save-success" style="display: none;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <strong style="color: #ffffff;"> 修改成功！</strong>
+                                        </div>
+                                        <div class="alert alert-danger fade save-fail" style="display: none;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <strong style="color: #ffffff;"> 修改失败！</strong>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-group dropdown">
+                            <a type="button" class="btn dropdown-toggle" ng-show="!authenticated" data-toggle="dropdown" ng-cloak><i class="fa fa-sign-in"></i> 注册</a>
+                            <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                <li class="grey-font">
+                                    <label class="control-label text-center" style="padding-left: 45%;">注册</label>
+                                    <form id="registerForm" class="login-form">
+                                        <div class="divider"></div>
+                                        <div class="form-group has-feedback">
+                                            <label class="control-label">用户名</label>
+                                            <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+                                            <i class="fa fa-user form-control-feedback"></i>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <label class="control-label">邮箱</label>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="邮箱">
+                                            <i class="fa fa-envelope form-control-feedback"></i>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <label class="control-label">密码</label>
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="密码">
+                                            <i class="fa fa-lock form-control-feedback"></i>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <label class="control-label">再次输入密码</label>
+                                            <input type="password" class="form-control" id="passwordTwice" name="passwordTwice" placeholder="再次输入密码">
+                                            <i class="fa fa-lock form-control-feedback"></i>
+                                        </div>
+                                        <button type="submit" class="btn btn-group btn-default btn-sm pull-right"> 注册</button>
+                                        <div class="alert alert-success fade save-success" style="display: none;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <strong style="color: #ffffff;"> 注册成功！</strong>
+                                        </div>
+                                        <div class="alert alert-danger fade save-fail" style="display: none;">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <strong style="color: #ffffff;"> 注册失败！</strong>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-group dropdown">
+                            <a type="button" class="btn dropdown-toggle" ng-show="authenticated" ng-click="logout()" ng-cloak><i class="fa fa-sign-out"></i> 退出</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header header fixed clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="header-left clearfix">
+
+                    <div class="logo">
+                        <a href="index.html"><img id="logo" src="img/logo3.png" alt="iDea"></a>
+                    </div>
+                    <div class="site-slogan">
+                        方便 &amp; 好用的考试云平台
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="header-right clearfix">
+                    <div class="main-navigation animated">
+
+                        <nav class="navbar navbar-default" role="navigation">
+                            <div class="container-fluid">
+
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="active"><a href="#home">首页</a></li>
+                                        <li ><a href="#function">功能</a></li>
+                                        <li><a href="#us">我们</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    //修改密码验证
+    //------------------------------------------
+
+    $("#changePwdForm").validate({
+        rules: {
+            oldPwd: {
+                required: true,
+                minlength: 5
+            },
+            newPwd: {
+                required: true,
+                minlength: 5
+            },
+            newPwdTwice: {
+                required: true,
+                minlength: 5,
+                equalTo: "#newPwd"
+            }
+        },
+        messages: {
+            oldPwd: {
+                required: "请输入密码！",
+                minlength: "密码长度最少五个字母!"
+            },
+            newPwd: {
+                required: "请输入密码！",
+                minlength: "密码长度最少五个字母!"
+            },
+            newPwdTwice: {
+                required: "请输入密码！",
+                minlength: "密码长度最少五个字母！",
+                equalTo: "两次密码输入不一致！"
+            }
+        },
+        submitHandler: function (form) {
+            var user = $('#changePwdForm').serializeJSON();
+            $.ajax({
+                url: "/auth/v1/users/password",
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(user),
+                success: function (data) {
+                    $(".alert-success").removeClass("in").show();
+                    $(".alert-success").delay(200).addClass("in").fadeOut(2000);
+                },
+                error: function (error) {
+                    $(".alert-danger").removeClass("in").show();
+                    $(".alert-danger").delay(200).addClass("in").fadeOut(2000);
+                }
+            });
+        }
+    });
+
+    //注册验证
+    //------------------------------------------
+    $("#registerForm").validate({
+        rules: {
+            username: {
+                required: true,
+                minlength: 2,
+                remote: {
+                    url: '/auth/v1/users/register/name',
+                    type: 'GET',
+                    data: {
+                        username: function () {
+                            return $('#username').val();
+                        }
+                    },
+                    dataFilter: function (data) {
+                        if(data == 'true') {
+                            return true;
+                        }else {
+                            return false;
+                        }
+                    }
+                }
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 5
+            },
+            passwordTwice: {
+                required: true,
+                minlength: 5,
+                equalTo: "#password"
+            }
+        },
+        messages: {
+            username: {
+                required: "请输入用户名！",
+                minlength: "用户名长度最少两个字母!",
+                remote: "用户名已存在！"
+            },
+            email: "请输入正确的邮箱地址！",
+            password: {
+                required: "请输入密码！",
+                minlength: "密码长度最少五个字母!"
+            },
+            passwordTwice: {
+                required: "请输入密码！",
+                minlength: "密码长度最少五个字母！",
+                equalTo: "两次密码输入不一致！"
+            }
+        },
+        submitHandler: function (form) {
+            var user = $('#registerForm').serializeJSON();
+            $.ajax({
+                url: "/auth/v1/users/register",
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(user),
+                success: function (data) {
+                    $(".alert-success").removeClass("in").show();
+                    $(".alert-success").delay(200).addClass("in").fadeOut(2000);
+                },
+                error: function (error) {
+                    $(".alert-warning").removeClass("in").show();
+                    $(".alert-warning").delay(200).addClass("in").fadeOut(2000);
+                }
+            });
+        }
+    });
+</script>
+

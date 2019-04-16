@@ -1,0 +1,39 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" >
+                <button type="button" class="close" ng-click="$hide()">&times;</button>
+                <h4 class="modal-title">分配权限</h4>
+            </div>
+            <div class="modal-body" >
+                <div class="form-group" ng-repeat="item in authorities">
+                    <div class="icheckbox_minimal-grey">
+                        <label>
+                            <input type="checkbox" class="minimal" ng-model="item.selected">
+                        </label>
+                        &nbsp;
+                        <label>{{item.label}}</label>
+                    </div>
+                </div>
+                <div class="alert alert-success fade save-success" style="display: none;">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong style="color: #ffffff;"> 添加成功！</strong>
+                </div>
+                <div class="alert alert-warning fade save-fail" style="display: none;">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong style="color: #ffffff;"> 添加失败！</strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" ng-click="save()"><i class="glyphicon glyphicon-floppy-save"></i> 保存</button>
+                <button type="button" class="btn btn-default" ng-click="$hide()"> 关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

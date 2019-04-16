@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en" ng-app="contentApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <title>在线考试管理系统</title>
+        
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+
+        <!-- moment -->
+        <link rel="stylesheet" href="bower_components/angular-moment-picker/angular-moment-picker.min.css">
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower_components/AdminLTE/dist/css/AdminLTE.min.css">
+
+        <!-- abn -->
+        <link rel="stylesheet" href="bower_components/abn/abn_tree.css">
+
+        <!-- angular-ivh-treeview -->
+        <link rel="stylesheet" href="bower_components/angular-ivh-treeview/dist/ivh-treeview.min.css">
+
+        <!-- angular-motion -->
+        <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css">
+
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet" href="bower_components/AdminLTE/plugins/datepicker/datepicker3.css">
+
+        <!-- lib -->
+        <link rel="stylesheet" href="bower_components/lib/lib.css">
+
+        <!-- app -->
+        <link rel="stylesheet" href="app.css">
+        
+        
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+            <!-- <headers></headers>
+            <sidebars></sidebars> -->
+            <header-and-sidebar></header-and-sidebar>
+            <div class="content-wrapper">
+               
+                <section class="content">
+                  <div ui-view></div>
+                </section>
+            </div>
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      Admin
+    </div>
+    <strong>Copyright &copy; 2017 </strong> 
+  </footer>
+        </div>
+        
+        
+        <!-- ========================js============================= -->
+        <!-- jquery -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/jquery-validation/jquery.validate.min.js"></script>
+        <!-- bootstrap -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower_components/AdminLTE/dist/js/app.min.js"></script>
+        <!-- angular -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+        <!-- moment -->
+        <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+        <script src="bower_components/angular-moment-picker/angular-moment-picker.min.js"></script>
+        <!-- angular-bootstrap -->
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <!-- angular-smart-table -->
+        <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+        <!-- abn -->
+        <script src="bower_components/abn/abn_tree_directive.js"></script>
+        <!-- angularjs file upload -->
+        <script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+        <!-- angular-ivh-treeview -->
+        <script src="bower_components/angular-ivh-treeview/dist/ivh-treeview.min.js"></script>
+        <!-- angular-strap -->
+        <script src="bower_components/angular-strap/dist/angular-strap.js"></script>
+        <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
+        <!-- bootstrap datepicker -->
+        <script src="bower_components/AdminLTE/plugins/datepicker/bootstrap-datepicker.js"></script>
+        <script src="bower_components/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
+        <!-- angular-morris -->
+        <script src="bower_components/raphael/raphael.min.js"></script>
+        <script src="bower_components/morris.js/morris.min.js"></script>
+        <script src="bower_components/angular-morris/angular-morris.min.js"></script>
+        <!-- ============================components========================= -->
+        <!-- app -->
+        <script src="app.js"></script>
+        <script src="app.module.js"></script>
+        <script src="app.config.js"></script>
+        <!-- headerAndSidebar -->
+        <script src="components/headerAndSidebar/headerAndSidebar.module.js"></script>
+        <script src="components/headerAndSidebar/headerAndSidebar.component.js"></script>
+        <!-- subjects -->
+        <script src="components/subjects/subjects.module.js"></script>
+        <script src="components/subjects/subjects.component.js"></script>
+        <!-- addPaper -->
+        <script src="components/addPaper/addPaper.module.js"></script>
+        <script src="components/addPaper/addPaper.component.js"></script>
+        <!-- paperList -->
+        <script src="components/paperList/paperList.module.js"></script>
+        <script src="components/paperList/paperList.component.js"></script>
+        <!-- studentList -->
+        <script src="components/students/students.module.js"></script>
+        <script src="components/students/students.component.js"></script>
+        <!-- userInfo -->
+        <script src="components/userInfo/userInfo.module.js"></script>
+        <script src="components/userInfo/userInfo.component.js"></script>
+        <!-- viewUserInfo -->
+        <script src="components/viewUserInfo/viewUserInfo.module.js"></script>
+        <script src="components/viewUserInfo/viewUserInfo.component.js"></script>
+        <!-- addStudent -->
+        <script src="components/addStudent/addStudent.module.js"></script>
+        <script src="components/addStudent/addStudent.component.js"></script>
+        <!-- grade -->
+        <script src="components/grade/grade.module.js"></script>
+        <script src="components/grade/grade.component.js"></script>
+        <!-- gradeList -->
+        <script src="components/gradeList/gradeList.module.js"></script>
+        <script src="components/gradeList/gradeList.component.js"></script>
+        <!-- profile -->
+        <script src="components/profile/profile.module.js"></script>
+        <script src="components/profile/profile.component.js"></script>
+        <!-- authority -->
+        <script src="components/authority/authority.module.js"></script>
+        <script src="components/authority/authority.component.js"></script>
+        <!-- addQuestion -->
+        <script src="components/addQuestion/addQuestion.module.js"></script>
+        <script src="components/addQuestion/addQuestion.component.js"></script>
+        <!-- questionList -->
+        <script src="components/questionList/questionList.module.js"></script>
+        <script src="components/questionList/questionList.component.js"></script>
+        <!-- paperQuestions -->
+        <script src="components/paperQuestions/paperQuestions.module.js"></script>
+        <script src="components/paperQuestions/paperQuestions.component.js"></script>
+        <!-- teachers -->
+        <script src="components/teachers/teachers.module.js"></script>
+        <script src="components/teachers/teachers.component.js"></script>
+        <!-- answer-papers -->
+        <script src="components/answerPapers/answerPapers.module.js"></script>
+        <script src="components/answerPapers/answerPapers.component.js"></script>
+        <!-- markPaper -->
+        <script src="components/markPaper/markPaper.module.js"></script>
+        <script src="components/markPaper/markPaper.component.js"></script>
+        <!-- results -->
+        <script src="components/results/results.module.js"></script>
+        <script src="components/results/results.component.js"></script>
+        <!-- changePassword -->
+        <script src="components/changePassword/changePassword.module.js"></script>
+        <script src="components/changePassword/changePassword.component.js"></script>
+        <!-- messages -->
+        <script src="components/messages/messages.module.js"></script>
+        <script src="components/messages/messages.component.js"></script>
+        <!-- welcome -->
+        <script src="components/welcome/welcome.module.js"></script>
+        <script src="components/welcome/welcome.component.js"></script>
+    </body>
+</html>

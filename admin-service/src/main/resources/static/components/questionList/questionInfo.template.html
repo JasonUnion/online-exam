@@ -1,0 +1,44 @@
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title">详细信息 : {{question.simpleTitle}}</h4>
+      </div>
+      <div class="modal-body" >
+        <div ng-show="question.type == '选择题'">
+          <dl>
+            <dt>{{question.number}}. {{question.title}} ( )</dt>
+          </dl>
+
+          <div class="form-group">
+            <label class="control-label" >A)&nbsp;&nbsp;</label> {{question.optionA}}
+          </div>
+          <div class="form-group">
+            <label class="control-label" >B)&nbsp;&nbsp;</label> {{question.optionB}}
+          </div>
+          <div class="form-group">
+            <label class="control-label" >C)&nbsp;&nbsp;</label> {{question.optionC}}
+          </div>
+          <div class="form-group">
+            <label class="control-label" >D)&nbsp;&nbsp;</label> {{question.optionD}}
+          </div>
+        </div>
+
+        <div ng-show="question.type == '简答题'">
+          <dl>
+            <dd>{{question.number}}. {{question.title}} </dd>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </dl>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$hide()"> 关闭</button>
+      </div>
+    </div>
+  </div>
+</div>

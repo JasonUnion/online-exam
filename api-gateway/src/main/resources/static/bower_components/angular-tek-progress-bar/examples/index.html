@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular-tek-progress-bar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.7/styles/solarized_dark.min.css">
+    <link rel="stylesheet" href="/examples/css/default-angular-bar.css">
+    <link rel="stylesheet" href="/examples/css/style.css">
+</head>
+<body ng-app="test" ng-controller="mainController as main">
+<header class="marquee">
+    <tek-progress-bar class="progress-xs progress-loading progress-loading-fixed"
+                      manager="main.bar"></tek-progress-bar>
+    <div>
+        <header role="banner" class="bs-docs-nav">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="./">angular-tek-progress-bar</a>
+                </div>
+                <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a target="_blank" href="//travis-ci.org/TekVanDo/Angular-Tek-Progress-bar" class="github-badge">
+                                <img src="https://travis-ci.org/TekVanDo/Angular-Tek-Progress-bar.svg?branch=master">
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href='https://coveralls.io/github/TekVanDo/Angular-Tek-Progress-bar?branch=master'>
+                                <img src='https://coveralls.io/repos/TekVanDo/Angular-Tek-Progress-bar/badge.svg?branch=master&service=github' alt='Coverage Status' />
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://github.com/TekVanDo/Angular-Tek-Progress-bar">
+                                <i class="fa fa-github"></i>&nbsp;GitHub
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <div class="call-out">
+        <div class="container">
+            <div class="col-md-9">
+                <h1><a class="title-text" href="https://github.com/TekVanDo/Angular-Tek-Progress-bar">angular-tek-progress-bar</a>
+                </h1>
+
+                <p>AngularJS 1.2+ progress bar directive.</p>
+            </div>
+            <div class="bs-docs-social col-md-3">
+                <ul>
+                    <li class="github-btn">
+                        <a aria-label="Download TekVanDo/Angular-Tek-Progress-bar on GitHub"
+                           data-icon="octicon-cloud-download"
+                           href="https://github.com/TekVanDo/Angular-Tek-Progress-bar/archive/master.zip"
+                           class="github-button">Download</a>
+                    </li>
+                    <li class="github-btn">
+                        <a aria-label="Watch TekVanDo/Angular-Tek-Progress-bar on GitHub"
+                           data-count-aria-label="# watchers on GitHub"
+                           data-count-api="/repos/TekVanDo/Angular-Tek-Progress-bar#subscribers_count"
+                           data-count-href="/TekVanDo/Angular-Tek-Progress-bar/watchers"
+                           data-icon="octicon-eye" href="https://github.com/TekVanDo/Angular-Tek-Progress-bar"
+                           class="github-button">Watch</a>
+                    </li>
+                    <li class="github-btn">
+                        <a aria-label="Star TekVanDo/Angular-Tek-Progress-bar on GitHub"
+                           data-count-aria-label="# stargazers on GitHub"
+                           data-count-api="/repos/TekVanDo/Angular-Tek-Progress-bar#stargazers_count"
+                           data-count-href="/TekVanDo/Angular-Tek-Progress-bar/stargazers"
+                           data-icon="octicon-star"
+                           href="https://github.com/TekVanDo/Angular-Tek-Progress-bar"
+                           class="github-button">Star</a>
+                    </li>
+                    <li class="github-btn">
+                        <a aria-label="Follow @TekVanDo on GitHub" data-count-aria-label="# followers on GitHub"
+                           data-count-api="/users/TekVanDo#followers" data-count-href="/TekVanDo/followers"
+                           href="https://github.com/TekVanDo" class="github-button">Follow @TekVanDo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading"><b>Demo</b></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="m-t-xs">Loading bar</h4>
+
+                    <button class="btn btn-primary" ng-click="main.bar.set(main.random())">setRand</button>
+                    <button class="btn btn-primary" ng-click="main.bar.reset()">reset</button>
+                    <button class="btn btn-primary" ng-click="main.bar.clear()">clear</button>
+                    <button class="btn btn-primary" ng-click="main.bar.start()">start</button>
+                    <button class="btn btn-primary" ng-click="main.bar.stop()">stop</button>
+                    <button class="btn btn-primary" ng-click="main.bar.done()">done</button>
+                    <button class="btn btn-primary" ng-click="main.bar.setAnimation(!main.bar.isAnimated())">
+                        toggleAnimation
+                    </button>
+                    <input type="number" class="form-manager" min="0" step="0.01" max="100" ng-model="main.valBar">
+                    <button class="btn btn-primary" ng-click="main.bar.increase()">Increase</button>
+                    <button class="btn btn-primary" ng-click="main.valBar = main.bar.get()">Get</button>
+                    <button class="btn btn-primary" ng-click="main.bar.set(main.valBar)">Set</button>
+                </div>
+
+                <div class="col-md-12">
+                    Js
+                    <div class="highlight">
+                <pre><code class="js hljs">angular.module('test', ['Tek.progressBar']).controller('mainController', function (progressBarManager) {
+    var main = this;
+    main.bar = progressBarManager();
+});</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        Html
+                        <div class="highlight">
+                <pre><code class="html hljs">&lt;tek-progress-bar class="progress-xs progress-loading progress-loading-fixed" manager="main.bar"&gt;&lt;/tek-progress-bar&gt;</code></pre>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="m-t-xs">Somple bar</h4>
+                    <div class="buttons-block">
+                        progress-bar value <input type="number" min="0" step="0.01" max="100" ng-model="main.bar1ProgressVal">
+                    </div>
+                    <div class="bs-example">
+                        <tek-progress-bar class="m-tb-sm" bar-class="progress-bar-danger"
+                                          ng-model="main.bar1ProgressVal">
+                        </tek-progress-bar>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                        Js
+                    <div class="highlight">
+                <pre><code class="js hljs">angular.module('test', ['Tek.progressBar']).controller('mainController', function () {
+    var main = this;
+    main.bar2ProgressVal = 0;
+});</code></pre>
+                    </div>
+                </div>
+
+                    <div class="col-md-12">
+                        Html
+                        <div class="highlight">
+                <pre><code class="html hljs">&lt;tek-progress-bar class="m-tb-sm" bar-class="progress-bar-danger" ng-model="main.bar2ProgressVal"&gt;&lt;/tek-progress-bar&gt;</code></pre>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="m-t-xs">Combined Bar</h4>
+                    <div class="buttons-block">
+                        <button class="btn btn-primary" ng-click="main.isBar = !main.isBar">toggle ng-if</button>
+                        <button class="btn btn-primary" ng-click="main.bar2.set(main.random())">setRand</button>
+                        <button class="btn btn-primary" ng-click="main.bar2.reset()">reset</button>
+                        <button class="btn btn-primary" ng-click="main.bar2.clear()">clear</button>
+                        <button class="btn btn-primary" ng-click="main.bar2.start()">start</button>
+                        <button class="btn btn-primary" ng-click="main.bar2.stop()">stop</button>
+                        <button class="btn btn-primary" ng-click="main.bar2.done()">done</button>
+                        <button class="btn btn-primary" ng-click="main.bar2.setAnimation(!main.bar.isAnimated())">
+                            toggleAnimation
+                        </button>
+                        <input type="number" class="form-manager" min="0" step="0.01" max="100"
+                               ng-model="main.bar2ProgressVal">
+                        <button class="btn btn-primary" ng-click="main.bar2.increase()">Increase</button>
+                    </div>
+                    <div class="bs-example">
+                        <tek-progress-bar ng-if="main.isBar" class="m-tb-sm" bar-class="progress-bar-warning"
+                                          ng-model="main.bar2ProgressVal"
+                                          manager="main.bar2">{{main.bar2ProgressVal}}%
+                        </tek-progress-bar>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    Js
+                    <div class="highlight">
+                <pre><code class="js hljs">angular.module('test', ['Tek.progressBar']).controller('mainController', function (progressBarManager) {
+    var main = this;
+    main.isBar = true;
+    main.bar2ProgressVal = 0;
+    main.bar2 = progressBarManager();
+});</code></pre>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    Html
+                    <div class="highlight">
+                <pre><code class="html hljs">&lt;tek-progress-bar ng-if="main.isBar" class="m-tb-sm" bar-class="progress-bar-warning" ng-model="main.bar2ProgressVal"
+                  manager="main.bar2"&gt;&#123;&#123;main.bar2ProgressVal&#125;&#125;%
+&lt;/tek-progress-bar&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><b>Additional demos</b></div>
+        <div class="panel-body">
+            Requires additions styles like <a target="_blank" href="https://cdn.rawgit.com/TekVanDo/Angular-Tek-Progress-bar/3a17ff0f00a5df8ae38e3b3b59d05eb5b00ec43b/examples/css/default-angular-bar.css">this</a>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="buttons-block">
+                        <b>Right</b>
+                        <button class="btn btn-primary" ng-click="main.rightBar.set(main.random())">setRand</button>
+                        <button class="btn btn-primary" ng-click="main.rightBar.reset()">reset</button>
+                        <button class="btn btn-primary" ng-click="main.rightBar.clear()">clear</button>
+                        <button class="btn btn-primary" ng-click="main.rightBar.start()">start</button>
+                        <button class="btn btn-primary" ng-click="main.rightBar.stop()">stop</button>
+                        <button class="btn btn-primary" ng-click="main.rightBar.done()">done</button>
+                        <button class="btn btn-primary" ng-click="main.rightBar.setAnimation(!main.rightBar.isAnimated())">
+                            toggleAnimation
+                        </button>
+                       <button class="btn btn-primary" ng-click="main.rightBar.increase()">Increase</button>
+                    </div>
+                    <div class="bs-example">
+                        <tek-progress-bar class="m-tb-sm right" manager="main.rightBar"></tek-progress-bar>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="buttons-block">
+                        <b>Vertical</b>
+                        <button class="btn btn-primary" ng-click="main.vertical.set(main.random())">setRand</button>
+                        <button class="btn btn-primary" ng-click="main.vertical.reset()">reset</button>
+                        <button class="btn btn-primary" ng-click="main.vertical.clear()">clear</button>
+                        <button class="btn btn-primary" ng-click="main.vertical.start()">start</button>
+                        <button class="btn btn-primary" ng-click="main.vertical.stop()">stop</button>
+                        <button class="btn btn-primary" ng-click="main.vertical.done()">done</button>
+                        <button class="btn btn-primary" ng-click="main.vertical.setAnimation(!main.vertical.isAnimated())">
+                            toggleAnimation
+                        </button>
+                        <button class="btn btn-primary" ng-click="main.vertical.increase()">Increase</button>
+                    </div>
+                    <div class="bs-example">
+                        <div class="fixed-height-250">
+                            <tek-progress-bar mode="vertical" bar-class="progress-bar-warning" manager="main.vertical"></tek-progress-bar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="buttons-block">
+                        <b>Vertical top</b>
+                        <button class="btn btn-primary" ng-click="main.verticalTop.set(main.random())">setRand</button>
+                        <button class="btn btn-primary" ng-click="main.verticalTop.reset()">reset</button>
+                        <button class="btn btn-primary" ng-click="main.verticalTop.clear()">clear</button>
+                        <button class="btn btn-primary" ng-click="main.verticalTop.start()">start</button>
+                        <button class="btn btn-primary" ng-click="main.verticalTop.stop()">stop</button>
+                        <button class="btn btn-primary" ng-click="main.verticalTop.done()">done</button>
+                        <button class="btn btn-primary" ng-click="main.verticalTop.setAnimation(!main.verticalTop.isAnimated())">
+                            toggleAnimation
+                        </button>
+                        <button class="btn btn-primary" ng-click="main.verticalTop.increase()">Increase</button>
+                    </div>
+                    <div class="bs-example">
+                        <div class="fixed-height-250">
+                            <tek-progress-bar mode="vertical" class="bottom" bar-class="progress-bar-success" manager="main.verticalTop"></tek-progress-bar>
+                        </div>
+                    </div>
+                    Html
+                    <div class="highlight">
+                    <pre><code class="html hljs">&lt;tek-progress-bar class="m-tb-sm right" manager="main.rightBar"&gt;
+&lt;tek-progress-bar class="m-tb-sm" mode="vertical" bar-class="progress-bar-warning" ng-model="main.verticalbarVal"&gt;
+&lt;tek-progress-bar class="m-tb-sm bottom" mode="vertical" bar-class="progress-bar-succsess" ng-model="main.verticalbarVal"&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><b>Download & install</b></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="center"><b>Method 1:</b> Install through bower:</p>
+                    <div class="highlight">
+                    <pre><code class="bash hljs">$ bower install angular-tek-progress-bar --save</code></pre>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <p class="center"><b>Method 2:</b> Download the angular-tek-progress-bar <strong>JavaScript</strong> files.</p>
+                    <a download="" href="https://github.com/TekVanDo/Angular-Tek-Progress-bar/archive/master.zip" class="btn btn-primary">Download files</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+<script src="//cdn.jsdelivr.net/highlight.js/8.7/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<!--<script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>-->
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="../src/progressBarModule.js"></script>
+<script src="../src/directives/progressBar.js"></script>
+<script src="../src/services/progressBarManager.js"></script>
+<script src="js/mainController.js"></script>
+</body>
+</html>

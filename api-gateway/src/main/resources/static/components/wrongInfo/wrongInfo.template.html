@@ -1,0 +1,87 @@
+<div id="online-exam" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-9 panel">
+            <br>
+            <div class="row">
+                <div class="col-sm-12" ng-show="wrong.type == '选择题'">
+                    <div class="question" >
+                        <h4 class="questionTitle"><span ng-bind="wrong.number"></span>.<span ng-bind="wrong.title"></span></h4>
+                        <div class="form-group">
+                            <h4>
+                                <label class="radio-inline" for="optionA{{wrong.number}}">
+                                    <input type="radio" name="option{{wrong.number}}" id="optionA{{wrong.number}}" value="optionA"
+                                           ng-model="wrong.answer">
+                                    &nbsp;
+                                    <strong>A． </strong>
+                                    <span ng-bind="wrong.optionA"></span>
+                                </label>
+                            </h4>
+                            <h4>
+                                <label class="radio-inline" for="optionB{{wrong.number}}">
+                                    <input type="radio" name="option{{wrong.number}}" id="optionB{{wrong.number}}" value="optionB"
+                                           ng-model="wrong.answer">
+                                    &nbsp;
+                                    <strong>B． </strong>
+                                    <span ng-bind="wrong.optionB"></span>
+                                </label>
+                            </h4>
+                            <h4>
+                                <label class="radio-inline" for="optionC{{wrong.number}}">
+                                    <input type="radio" name="option{{wrong.number}}" id="optionC{{wrong.number}}" value="optionC"
+                                           ng-model="wrong.answer">
+                                    &nbsp;
+                                    <strong>C． </strong>
+                                    <span ng-bind="wrong.optionC"></span>
+                                </label>
+                            </h4>
+                            <h4>
+                                <label class="radio-inline" for="optionD{{wrong.number}}">
+                                    <input type="radio" name="option{{wrong.number}}" id="optionD{{wrong.number}}" value="optionD"
+                                           ng-model="wrong.answer">
+                                    &nbsp;
+                                    <strong>D．</strong>
+                                    <span ng-bind="wrong.optionD"></span>
+                                </label>
+                            </h4>
+                            <div class="row bg-grey">
+                                <div class="form-group col-sm-12 right-answer">
+                                    <label class="control-label">正确答案:</label>
+                                    <p ng-show="wrong.rightAnswer=='optionA'"> 选项A</p>
+                                    <p ng-show="wrong.rightAnswer=='optionB'"> 选项B</p>
+                                    <p ng-show="wrong.rightAnswer=='optionC'"> 选项C</p>
+                                    <p ng-show="wrong.rightAnswer=='optionD'"> 选项D</p>
+                                    <br>
+                                    <label class="control-label">答案解析: </label><p ng-bind="right.analysis"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12" ng-show="wrong.type == '简答题'">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h4 class="questionTitle"><span ng-bind="wrong.number"></span>、<span ng-bind="wrong.title"></span>（<span ng-bind="wrong.score"></span>分）</h4>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="{{wrong.score}}" required ng-model="wrong.markScore"/><span class="input-group-addon">分</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <p ng-bind="wrong.answer">
+                    </p>
+                    <div class="right-answer">
+                        <h4>参考答案: <small ng-bind="wrong.rightAnswer"></small></h4>
+                        <br>
+                        <h4>答案解析: <small ng-bind="wrong.rightAnswer"></small></h4>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</div>

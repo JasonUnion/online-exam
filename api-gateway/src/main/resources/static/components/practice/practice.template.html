@@ -1,0 +1,80 @@
+<div id="online-exam" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-10 panel">
+            <h2 class="text-center" ng-bind="practice.name"></h2>
+            <span id="practice-progress" style="font-family:'SimSun';">当前完成：</span>
+            <tek-progress-bar class="progress-xs progress-loading progress-loading-fixed" manager="bar"
+                              bar-class="progress-bar-success" ng-model="bar2ProgressVal">
+            </tek-progress-bar>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-12" ng-show="currentQuestion.type == '选择题'">
+                    <div class="question" >
+                        <h4 class="questionTitle"><span ng-bind="currentQuestion.number"></span>.<span ng-bind="currentQuestion.title"></span></h4>
+                        <div class="form-group">
+                            <h4>
+                                <label class="radio-inline" for="optionA{{currentQuestion.number}}">
+                                    <input type="radio" name="option{{currentQuestion.number}}" id="optionA{{currentQuestion.number}}" value="optionA"
+                                           ng-model="currentQuestion.answer">
+                                    &nbsp;
+                                    <strong>A． </strong>
+                                    <span ng-bind="currentQuestion.optionA"></span>
+                                </label>
+                            </h4>
+                            <h4>
+                                <label class="radio-inline" for="optionB{{currentQuestion.number}}">
+                                    <input type="radio" name="option{{currentQuestion.number}}" id="optionB{{currentQuestion.number}}" value="optionB"
+                                           ng-model="currentQuestion.answer">
+                                    &nbsp;
+                                    <strong>B． </strong>
+                                    <span ng-bind="currentQuestion.optionB"></span>
+                                </label>
+                            </h4>
+                            <h4>
+                                <label class="radio-inline" for="optionC{{currentQuestion.number}}">
+                                    <input type="radio" name="option{{currentQuestion.number}}" id="optionC{{currentQuestion.number}}" value="optionC"
+                                           ng-model="currentQuestion.answer">
+                                    &nbsp;
+                                    <strong>C． </strong>
+                                    <span ng-bind="currentQuestion.optionC"></span>
+                                </label>
+                            </h4>
+                            <h4>
+                                <label class="radio-inline" for="optionD{{currentQuestion.number}}">
+                                    <input type="radio" name="option{{currentQuestion.number}}" id="optionD{{currentQuestion.number}}" value="optionD"
+                                           ng-model="currentQuestion.answer">
+                                    &nbsp;
+                                    <strong>D．</strong>
+                                    <span ng-bind="currentQuestion.optionD"></span>
+                                </label>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12" ng-show="currentQuestion.type == '简答题'">
+                    <div class="question">
+                        <h4 class="questionTitle"><span ng-bind="currentQuestion.number"></span>、<span ng-bind="currentQuestion.title"></span>（<span ng-bind="currentQuestion.score"></span>分）</h4>
+                        <div class="form-group">
+                            <label for="answer">答: </label>
+                            <textarea class="form-control" rows="7" id="answer" ng-model="currentQuestion.answer" style="font-size: 15px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="question">
+                        <div class="form-group text-center">
+                            <a class="btn btn-sm btn-success pull-left" href="javascript:void(0);" ng-click="before()">上一题</a>
+                            <a class="btn btn-sm btn-success pull-right" href="javascript:void(0);" ng-click="next()" ng-show="!end">下一题</a>
+                            <a class="btn btn-sm btn-success pull-right" href="javascript:void(0);" ng-click="submit()" ng-show="end">提交</a>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+
+    </div>
+</div>

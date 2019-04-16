@@ -1,0 +1,26 @@
+#docker相关配置
+spring:
+  profiles: docker
+  application:
+      name: service-registry
+#运行的端口号
+server:
+  port: 8761
+#注册中心配置
+eureka:
+  instance:
+    hostname: localhost
+    port: ${server.port}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
+#logback配置，生产环境日志级别为 WARN 甚至更高
+logging:
+  file: logs/service-registry/service-registry-docker.log
+  level:
+    root: WARN

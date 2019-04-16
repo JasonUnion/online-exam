@@ -1,0 +1,51 @@
+{
+  "name": "humanize-duration",
+  "authors": [
+    "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
+    "Óli Tómas Freysson (https://github.com/olitomas)",
+    "Martin Prins (https://github.com/magarcia)",
+    "Filipi Siqueira (https://github.com/filipi777)",
+    "Peter Rekdal Sunde (https://github.com/peters)",
+    "Michał Janiec (https://github.com/mjjaniec)",
+    "Eileen Li (https://github.com/eileen3)",
+    "Tommy Brunn (https://github.com/Nevon)",
+    "Giovanni Pellerano (https://github.com/evilaliv3)",
+    "Rahma Sghaier (https://twitter.com/sghaierrahma)",
+    "Evgenios Kastanias (https://github.com/evgenios)",
+    "Oleksii Mylotskyi (https://github.com/spalax)",
+    "Matthew Brandly (https://github.com/brandly)",
+    "Patrik Simek (https://github.com/patriksimek)",
+    "Toni Helminen (https://github.com/tonihelminen)",
+    "Vidmantas Drasutis (https://github.com/drasius2)",
+    "Manh Tuan (https://github.com/J2TeaM)",
+    "Leonard Lee (https://github.com/sheeeng)",
+    "Jesse Jackson (https://github.com/jsejcksn)"
+  ],
+  "version": "3.10.0",
+  "description": "Convert millisecond durations to English and many other languages.",
+  "main": "humanize-duration.js",
+  "homepage": "https://github.com/EvanHahn/HumanizeDuration.js",
+  "keywords": [
+    "humanize",
+    "duration",
+    "time",
+    "hours",
+    "minutes",
+    "seconds",
+    "days",
+    "years",
+    "months"
+  ],
+  "license": "Unlicense",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EvanHahn/HumanizeDuration.js.git"
+  }
+}

@@ -1,0 +1,33 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="$hide()">&times;</button>
+                <h4 class="modal-title">编辑 : {{student.username}}</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">考号: <sup class="sup-color">*</sup></label>
+                        <div class="col-sm-8">
+                            <input type="number" ng-model="student.examNumber" placeholder="考号" class="form-control">
+                        </div>
+                        <span class="help-button" uib-tooltip="学生考号" tooltip-placement="left">?</span>
+                    </div>
+                </form>
+                <div class="alert alert-success fade" style="display: none;">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>保存成功!</strong>
+                </div>
+                <div class="alert alert-warning fade" style="display: none;">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>保存失败!</strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" ng-click="updateStudent()"><i class="glyphicon glyphicon-floppy-save"></i> 保存</button>
+                <button type="button" class="btn btn-default" ng-click="$hide()"> 关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

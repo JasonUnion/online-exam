@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="index.html">考试管理</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-table"></i> 所有试卷
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">所有试卷信息</h3>
+                <div class="box-tools">
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-wrench"></i></button>
+                            <ul class="dropdown-menu" role="menu" style="left: auto;right: 0px;">
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+
+                    <div class="pull-right">
+                        <div class="has-feedback">
+                            <input placeholder="搜索" class="form-control pull-right"  name="table_search" ng-model="paperName" type="search" style="width: 200px;" ng-change="search()"/>
+                            <span class="fa fa-search form-control-feedback"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body" st-table="answerPapers"  st-pipe="callServer">
+                <div class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table  class="table table-striped table-hover dataTable text-center" role="grid">
+                                <thead>
+                                <tr role="row">
+                                    <th >答卷名称</th>
+                                    <th >提交时间</th>
+                                    <th >答卷人</th>
+                                    <th >批改状态</th>
+                                    <th >完成状态</th>
+                                    <th >操作</th>
+                                </tr>
+                                </thead>
+                                <tbody ng-show="!isLoading">
+                                <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in answerPapers">
+                                    <td ng-bind="row.paperName"></td>
+                                    <td ng-bind="row.answerTime"></td>
+                                    <td ng-bind="row.answerUser"></td>
+                                    <td>
+                                        <span class="label label-warning" ng-show="row.checked=='false'">未批改</span>
+                                        <span class="label label-success" ng-show="row.checked=='true'">已批改</span>
+                                    </td>
+                                    <td>
+                                        <span class="label label-warning" ng-show="row.finished=='false'">未完成</span>
+                                        <span class="label label-success" ng-show="row.finished=='true'">已完成</span>
+                                    </td>
+                                    <td>
+                                        <a type="button" class="btn btn-sm btn-info" href="javascript:void(0);" ng-click="markPaper(row)" >
+                                            <i class="fa fa-pencil"> 批改试卷
+                                            </i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tbody ng-show="isLoading">
+                                <tr role="row">
+                                    <td class="text-center" colspan="12"><h4>加载中 ... </h4></td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="12" class="text-center" ng-show="!isSearch">
+                                        <div st-pagination="" st-items-by-page="10" st-template="components/answerPapers/answerPapers.pagination.html"></div>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                            <div class="text-center dataTables_info" ng-show="answerPapers== null && !isLoading">
+                                没有记录
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+
+            </div>
+        </div>
+
+    </div>
+</div>

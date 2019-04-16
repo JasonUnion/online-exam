@@ -1,0 +1,26 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" >
+                <button type="button" class="close" ng-click="$hide()">&times;</button>
+                <h4 class="modal-title">考生注意：</h4>
+            </div>
+            <div class="modal-body" >
+                <h4>
+                    考生注意：
+                    <br>
+                    1．考试时间<span ng-bind="totalTime"></span>分钟，试卷满分<span ng-bind="totalScore"></span>分。
+                    <br>
+                    2．本考试设试卷和答题纸两部分，试卷包括试题与答题要求；所有答题必须涂（选择题）或写（非选择题）在答题纸上；做在试卷上一律不得分。
+                    <br>
+                    3．答题前，务必用钢笔或圆珠笔在答题纸正面清楚地填写姓名、准考证号，并将核对后的条形码贴在指定位置上，在答题纸反面清楚地填写姓名。
+                    <br>
+                    4．答题纸与试卷在试题编号上是一一对应的，答题时应特别注意，不能错位。
+                </h4>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" type="button" ng-click="$hide()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

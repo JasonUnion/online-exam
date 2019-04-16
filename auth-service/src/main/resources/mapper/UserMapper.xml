@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tangyi.mapper.UserMapper">
+    <resultMap id="userMap" type="com.tangyi.domain.MapperUser">
+        <id property="id" column="ID"/>
+        <result property="username" column="USERNAME"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="email" column="EMAIL"/>
+        <result property="gender" column="GENDER"/>
+        <result property="avatar" column="AVATAR"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="mobilePhone" column="MOBILE_PHONE"/>
+        <result property="identityCard" column="IDENTITY_CARD"/>
+        <result property="introduction" column="INTRODUCTION"/>
+        <result property="birthday" column="BIRTHDAY"/>
+        <collection property="authorities" ofType="com.tangyi.domain.Authority">
+            <result column="AUTHORITY" property="authority"/>
+        </collection>
+    </resultMap>
+
+    <select id="findByUsername" parameterType="String" resultMap="userMap">
+        select u.*
+        ,a.authority
+        from user u
+        LEFT JOIN user_authority ua on u.id= ua.user_id
+        LEFT JOIN authority a on ua.authority_id=a.authority_id
+        where username= #{username}
+    </select>
+
+
+</mapper>

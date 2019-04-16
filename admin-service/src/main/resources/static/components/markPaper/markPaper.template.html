@@ -1,0 +1,133 @@
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="index.html">考试管理</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-table"></i> 批改试卷
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title" ng-bind="paper.paperName"></h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm">
+                            <input placeholder="按题号搜索" class="form-control pull-right"  name="table_search" ng-model="questionNumber" type="search" style="width: 200px;" ng-change="search()"/>
+                            <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="search()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body panel">
+                    <h5 class="text-center">答题人：<span ng-bind="paper.answerUser"></span></h5>
+                    <div class="col-sm-12" ng-show="currentQuestion.type == '选择题'">
+
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h4 class="questionTitle"><span ng-bind="currentQuestion.number"></span>.<span ng-bind="currentQuestion.title"></span></h4>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" placeholder="{{currentQuestion.score}}" required ng-model="currentQuestion.markScore"/><span class="input-group-addon">分</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h4>
+                                <label class="radio-inline" for="optionA{{currentQuestion.number}}">
+                                    <input type="radio" name="option{{currentQuestion.number}}" id="optionA{{currentQuestion.number}}" value="optionA"
+                                           ng-model="currentQuestion.answer">
+                                    &nbsp;
+                                    <strong>A． </strong>
+                                    <span ng-bind="currentQuestion.optionA"></span>
+                                </label>
+                            </h4>
+                            <h4>
+                                <label class="radio-inline" for="optionB{{currentQuestion.number}}">
+                                    <input type="radio" name="option{{currentQuestion.number}}" id="optionB{{currentQuestion.number}}" value="optionB"
+                                           ng-model="currentQuestion.answer">
+                                    &nbsp;
+                                    <strong>B． </strong>
+                                    <span ng-bind="currentQuestion.optionB"></span>
+                                </label>
+                            </h4>
+                            <h4>
+                                <label class="radio-inline" for="optionC{{currentQuestion.number}}">
+                                    <input type="radio" name="option{{currentQuestion.number}}" id="optionC{{currentQuestion.number}}" value="optionC"
+                                           ng-model="currentQuestion.answer">
+                                    &nbsp;
+                                    <strong>C． </strong>
+                                    <span ng-bind="currentQuestion.optionC"></span>
+                                </label>
+                            </h4>
+                            <h4>
+                                <label class="radio-inline" for="optionD{{currentQuestion.number}}">
+                                    <input type="radio" name="option{{currentQuestion.number}}" id="optionD{{currentQuestion.number}}" value="optionD"
+                                           ng-model="currentQuestion.answer">
+                                    &nbsp;
+                                    <strong>D．</strong>
+                                    <span ng-bind="currentQuestion.optionD"></span>
+                                </label>
+                            </h4>
+                        </div>
+                        <br>
+                        <div class="right-answer">
+                            <h4>参考答案:
+                                <small ng-show="currentAnswer.answer=='optionA'"> 选项A</small>
+                                <small ng-show="currentAnswer.answer=='optionB'"> 选项B</small>
+                                <small ng-show="currentAnswer.answer=='optionC'"> 选项C</small>
+                                <small ng-show="currentAnswer.answer=='optionD'"> 选项D</small>
+                            </h4>
+                            <br>
+                            <h4>答案解析: <small ng-bind="currentAnswer.analysis"></small></h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" ng-show="currentQuestion.type == '简答题'">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h4 class="questionTitle"><span ng-bind="currentQuestion.number"></span>、<span ng-bind="currentQuestion.title"></span>（<span ng-bind="currentQuestion.score"></span>分）</h4>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" placeholder="{{currentQuestion.score}}" required ng-model="currentQuestion.markScore"/><span class="input-group-addon">分</span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p ng-bind="currentQuestion.answer">
+                        </p>
+                        <div class="right-answer">
+                            <h4>参考答案: <small ng-bind="currentAnswer.answer"></small></h4>
+                            <br>
+                            <h4>答案解析: <small ng-bind="currentAnswer.analysis"></small></h4>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="question">
+                            <div class="form-group text-center">
+                                <a class="btn btn-sm btn-success pull-left" href="javascript:void(0);" ng-click="before()">上一题</a>
+                                <a class="btn btn-sm btn-success pull-right" href="javascript:void(0);" ng-click="next()">下一题</a>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

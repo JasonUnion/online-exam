@@ -1,0 +1,42 @@
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" >
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title">详细信息 : {{student.username}}</h4>
+      </div>
+      <div class="modal-body" >
+         <div class="form_group">
+      <div class="row">
+        <label class="control-label col-md-4 text-right">考号：</label>
+        {{student.examNumber}}
+      </div>
+
+      <div class="row">
+        <label class="control-label col-md-4 text-right">姓名：</label>
+        {{student.studentName}}
+      </div>
+
+      <div class="row">
+        <label class="control-label col-md-4 text-right">性别：</label>
+        {{student.gender}}
+      </div>
+
+      <div class="row">
+        <label class="control-label col-md-4 text-right">班级：</label>
+        {{student.gradeName}} {{student.className}}
+      </div>
+
+      <div class="row">
+        <label class="control-label col-md-4 text-right">邮箱：</label>
+        {{student.email}}
+      </div>
+    </div>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$hide()"> 关闭</button>
+      </div>
+    </div>
+  </div>
+</div>

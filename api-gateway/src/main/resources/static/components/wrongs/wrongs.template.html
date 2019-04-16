@@ -1,0 +1,55 @@
+<div id="papers" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 text-center" style="color: black;">
+            <h1>我的错题</h1>
+        </div>
+        <br>
+        <br>
+        <div class="col-sm-offset-3 col-sm-6">
+            <div class="row pull-left publish">
+                <i class="fa fa-eraser"></i> 收录的错题
+            </div>
+            <br>
+            <hr>
+            <div class="dataTables_wrapper form-inline dt-bootstrap" st-table="wrongs"  st-pipe="callServer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table  class="table table-striped table-hover dataTable" role="grid">
+                            <thead>
+                            <tr role="row">
+                                <th>题目名称</th>
+                                <th>类型</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody ng-show="!isLoading">
+                            <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in wrongs" role="row">
+                                <td>{{row.title}}</td>
+                                <td>{{row.type}}</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" ng-click="info(row)">详细信息</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <tbody ng-show="isLoading">
+                            <tr role="row">
+                                <td class="text-center" colspan="12"><h4>加载中 ... </h4></td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="12" class="text-center">
+                                    <div st-pagination="" st-items-by-page="10" st-template="components/wrongs/wrongs.pagination.html"></div>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                        <div class="text-center dataTables_info" ng-show="wrongs==null && !isLoading">
+                            没有更多记录
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

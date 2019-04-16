@@ -1,0 +1,31 @@
+<div id="results" class="container container-fluid">
+	<div class="row">
+		<div class="col-sm-2">
+			
+		</div>
+		<div class="col-sm-8 bg-grey">
+			<div class="col-sm-12" ng-show="result != null">
+				<h2>成绩：<span class="text-muted" ng-bind="result.score"></span></h2>
+
+				<h2>正确题数：<span class="text-success" ng-bind="result.right"></span></h2>
+
+				<h2>错误题数：<span class="text-danger" ng-bind="result.wrong"></span></h2>
+
+				<h2>正确率：<span class="text-success" ng-bind="result.correctRate"></span><span class="text-success">%</span></h2>
+
+				<a href="javascript:void(0);" class="btn btn-success bottom-button" ng-click="viewWrong()">查看错题</a>
+				<br>
+			</div>
+
+			<div class="col-sm-12" ng-show="paper != null">
+				<h2>成绩：<span class="text-muted" ng-bind="paper.score"></span></h2>
+				<br>
+			</div>
+            <br>
+            <br>
+		</div>
+		<div class="col-sm-2">
+			
+		</div>
+	</div>
+</div>

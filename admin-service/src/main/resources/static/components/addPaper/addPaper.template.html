@@ -1,0 +1,128 @@
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="index.html">考试管理</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-table"></i> 添加考试
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">添加考试</h3>
+            </div>
+            <form class="form-horizontal" role="form" ng-submit="addPaper()">
+                <div class="box-body">
+                    <div class="col-sm-10">
+                        <!-- 考试类型 -->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">考试类型：</label>
+                            <div class="col-sm-8">
+                                <label class="radio-inline" for="type-official">
+                                    <input type="radio" name="type" id="type-official" value="official" checked="checked" ng-model="type"> 正式考试
+                                </label>
+                                <label class="radio-inline" for="type-simulate">
+                                    <input type="radio" name="type" id="type-simulate" value="simulate" ng-model="type"> 模拟考试
+                                </label>
+                                <label class="radio-inline" for="type-practice">
+                                    <input type="radio" name="type" id="type-practice" value="practice" ng-model="type"> 在线练习
+                                </label>
+                            </div>
+                        </div>
+                        <!-- 考试名称 -->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >考试名称：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control"  ng-model="paperName" placeholder="考试名称" required>
+                            </div>
+                        </div>
+
+                        <!--考试图片-->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="upload-photo">上传图片：</label>
+                            <div class="col-md-8">
+                                <input id="upload-photo" name="upload-photo" class="input-file" type="file" nv-file-select uploader="uploader" multiple >
+                                <br>
+                                <div class="alert alert-success fade upload-seccess" style="display: none;">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong style="color: #3c763d;">保存成功!</strong>
+                                </div>
+                                <div class="alert alert-danger fade upload-fail"
+                                     style="display: none;">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong style="color: #a94442;">上传失败!</strong>
+                                </div>
+                                <a type="button" class="btn btn-sm btn-info" href="javascript:void(0);" ng-click="uploader.queue[0].upload()" ng-show="uploader.queue.length > 0" >
+                                    <i class="glyphicon glyphicon-upload"> 上传
+                                    </i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- startTime-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="startTime">开始时间：</label>
+                            <div class="col-sm-8">
+                                <input id="startTime" name="startTime" type="text" class="form-control" moment-picker="startTime"
+                                       format="YYYY-MM-DD HH:mm" required ng-model="startTime" placeholder="开始时间">
+                            </div>
+                        </div>
+                        <!-- endTime -->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="endTime">结束时间：</label>
+                            <div class="col-sm-8">
+                                <input id="endTime" name="endTime" type="text" class="form-control" moment-picker="endTime"
+                                       format="YYYY-MM-DD HH:mm" required ng-model="endTime" placeholder="结束时间">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="endTime">所属课程：</label>
+                            <div class="col-sm-8">
+                                <button type="button" class="btn btn-default" ng-model="subject" data-html="2" data-toggle="true"
+                                        bs-options="item as item.name for item in subjects track by item.id" bs-select
+                                        placeholder="--- 请选择 ---" style="font-size: 14px;">
+                                    <span class="caret"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="endTime">备注说明：</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" rows="10"  id="remark" name="remark" placeholder="200字以内" ng-model="remark" required></textarea>
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+                        <div class="alert alert-success fade save-success" style="display: none;">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong style="color: #ffffff;"> 保存成功！</strong>
+                        </div>
+                        <br>
+                        <br>
+
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="img-responsive img-thumbnail" ng-repeat="item in uploader.queue" style="cursor: pointer;">
+                            <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 170, width: 170}"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div class="col-sm-offset-3 col-sm-8">
+                        <button id="addPaper" class="btn btn-info pull-right" type="submit">
+                            <i class="fa fa-floppy-o"></i> 保存
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

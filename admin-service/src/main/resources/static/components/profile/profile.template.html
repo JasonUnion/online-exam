@@ -1,0 +1,169 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="box">
+			<div class="box-body">
+				<div class="col-md-10 ">
+					<form class="form-horizontal" ng-submit="save()">
+						<fieldset>
+							<legend>个人信息</legend>
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="username">姓名：</label>
+								<div class="col-md-4">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-user">
+											</i>
+										</div>
+										<input id="username" name="username" type="text" placeholder="姓名" class="form-control input-md" ng-model="username" disabled>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="upload-photo">上传图片：</label>
+								<div class="col-md-4">
+									<input id="upload-photo" name="upload-photo" class="input-file" type="file" nv-file-select uploader="uploader" multiple >
+									<br>
+									<div class="alert alert-success fade upload-seccess" style="display: none;">
+										<button type="button" class="close" data-dismiss="alert">×</button>
+										<strong style="color: #3c763d;">保存成功!</strong>
+									</div>
+									<div class="alert alert-danger fade upload-fail"
+										style="display: none;">
+										<button type="button" class="close" data-dismiss="alert">×</button>
+										<strong style="color: #a94442;">上传失败!</strong>
+									</div>
+									<a type="button" class="btn btn-sm btn-info" href="javascript:void(0);" ng-click="uploader.queue[0].upload()" ng-show="uploader.queue.length > 0" >
+										<i class="glyphicon glyphicon-upload"> 上传
+										</i>
+									</a>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="datepicker">生日：</label>
+								<div class="col-md-4">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-birthday-cake"></i>
+										</div>
+										<input id="datepicker" name="datepicker" type="text" placeholder="生日" class="form-control input-md" ng-model="birthday" required>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-md-4 control-label">性别：</label>
+								<div class="col-md-4">
+									<label class="radio-inline" for="gender-men">
+										<input type="radio" name="gender" id="gender-men" value="男" checked="checked" ng-model="gender">
+										男
+									</label>
+									<label class="radio-inline" for="gender-women">
+										<input type="radio" name="gender" id="gender-women" value="女" ng-model="gender">
+										女
+									</label>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-md-4 control-label">婚姻状态：</label>
+								<div class="col-md-4">
+									<label class="radio-inline" for="marry-yes">
+										<input type="radio" name="marry" id="marry-yes" value="已婚" checked="checked" ng-model="marry">
+										已婚
+									</label>
+									<label class="radio-inline" for="marry-no">
+										<input type="radio" name="marry" id="marry-no" value="未婚" ng-model="marry">
+										未婚
+									</label>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-md-4 control-label col-xs-12" for="address">目前住址：</label>
+								<div class="col-md-4">
+									<textarea class="form-control" rows="5"  id="address" name="address" ng-model="address" required></textarea>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="tel">手机号码：</label>
+								<div class="col-md-4">
+									<div class="input-group othertop">
+										<div class="input-group-addon">
+											<i class="fa fa-mobile fa-1x" style="font-size: 20px;"></i>
+										</div>
+										<input type="tel" id="tel" name="tel" placeholder="手机号码" class="form-control input-md" ng-model="mobilePhone" required>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="email">邮箱地址：</label>
+								<div class="col-md-4">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-envelope-o"></i>
+										</div>
+										<input id="email" name="email" type="email" placeholder="邮箱地址" class="form-control input-md" ng-model="email" required>
+										
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="identity">身份证号码：</label>
+								<div class="col-md-4">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="fa fa-sticky-note-o"></i>
+										</div>
+										<input id="identity" name="identity" type="text" placeholder="身份证号码" class="form-control input-md" ng-model="identityCard" required>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="introduction">简短的自我介绍：</label>
+								<div class="col-md-4">
+									<textarea class="form-control" rows="10"  id="introduction" name="introduction" placeholder="200字以内" ng-model="introduction" required></textarea>
+								</div>
+							</div>
+							<div class="alert alert-success fade save-success" style="display: none">
+								<button type="button" class="close" data-dismiss="alert">×</button>
+								<strong>保存成功!</strong>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label" ></label>
+								<div class="col-md-4">
+									<button class="btn btn-info col-md-offset-2" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span> 保存</button>
+									<button class="btn btn-danger col-md-offset-2" ng-click="clear()"><span class="glyphicon glyphicon-remove-sign"></span> 清除</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="col-md-2 hidden-xs">
+					<!-- <img src="img/avatar.jpg" class="img-responsive img-thumbnail " style="cursor: pointer;" ng-show="uploader.queue.length == 0"> -->
+					
+					<div class="img-responsive img-thumbnail" ng-repeat="item in uploader.queue" style="cursor: pointer;">
+						<div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 170, width: 170}"></div>
+						
+					</div>
+					<img  class="img-responsive img-thumbnail" ng-show="avatar!=null" ng-src="{{avatar}}" style="height: 170; width: 170;"></img>
+					</div>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>
+
+<script>
+	$('#datepicker').datepicker({
+		autoclose: true,
+		language: 'zh-CN',
+		format: 'yyyy/mm/dd'
+	})
+</script>

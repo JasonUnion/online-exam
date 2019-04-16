@@ -1,0 +1,47 @@
+{
+  "name": "angular-ivh-treeview",
+  "version": "1.0.6",
+  "authors": [
+    "jtrussell"
+  ],
+  "description": "Treeview for angular with filtering and checkboxes",
+  "main": [
+    "dist/ivh-treeview.js",
+    "dist/ivh-treeview.css"
+  ],
+  "keywords": [
+    "angular",
+    "tree",
+    "treeview"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ivantage/angular-ivh-treeview",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "docs",
+    "node_modules",
+    "src",
+    "test",
+    "CONTRIBUTING.md",
+    "gruntfile.js",
+    "MIGRATING.md",
+    "package.json"
+  ],
+  "dependencies": {
+    "angular": "~1.2.18 || ~1.4.0 || ~1.5.0 || ~1.6.0"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "angular-mocks": "~1.2.18 || ~1.4.0 || ~1.5.0 || ~1.6.0"
+  },
+  "_release": "1.0.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.6",
+    "commit": "df9095db51d0dc4b88ba82521e1a5b88e50972c0"
+  },
+  "_source": "https://github.com/ivantage/angular-ivh-treeview.git",
+  "_target": "^1.0.4",
+  "_originalSource": "angular-ivh-treeview"
+}

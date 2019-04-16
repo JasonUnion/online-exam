@@ -1,0 +1,57 @@
+<div id="papers" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 text-center" style="color: black;">
+            <h1>在线考试</h1>
+        </div>
+        <br>
+        <br>
+        <div class="col-sm-offset-3 col-sm-6">
+            <div class="row pull-left publish">
+                <i class="fa fa-cloud-upload"></i> 最近发布的考试
+            </div>
+            <br>
+            <hr>
+            <div class="dataTables_wrapper form-inline dt-bootstrap" st-table="papers"  st-pipe="callServerRecently">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table  class="table table-striped table-hover dataTable" role="grid">
+                            <thead>
+                            <tr role="row">
+                                <th>考试名称</th>
+                                <th>开始时间</th>
+                                <th>结束时间</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody ng-show="!isRecentlyLoading">
+                            <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in recentlyPapers" role="row">
+                                <td>{{row.name}}</td>
+                                <td>{{row.startTime}}</td>
+                                <td>{{row.endTime}}</td>
+                                <td>
+                                    <a class="btn btn-success btn-sm" ng-click="join(row)">参加</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <tbody ng-show="isRecentlyLoading">
+                            <tr role="row">
+                                <td class="text-center" colspan="12"><h4>加载中 ... </h4></td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="12" class="text-center">
+                                    <div st-pagination="" st-items-by-page="10" st-template="components/recently/recentlyPapers.pagination.html"></div>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                        <div class="text-center dataTables_info" ng-show="recentlyPapers==null && !isRecentlyLoading">
+                            没有更多记录
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

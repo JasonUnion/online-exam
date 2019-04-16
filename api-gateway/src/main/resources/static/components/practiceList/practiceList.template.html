@@ -1,0 +1,29 @@
+<div id="online-exam" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="practice-item" ng-repeat="item in practices track by $index">
+                <a href="javascript:void(0);" class="title">
+                    <img ng-src="{{item.avatar}}" class="img-thumbnail">
+                    <img ng-src="img/solve1.png" class="img-thumbnail" ng-show="item.avatar == null">
+                    <p>
+                        <span class="bigT" ng-bind="item.name"></span>
+                        <span class="little">基础知识</span>
+                    </p>
+
+                </a>
+
+                <div class="proR">
+                    <h4>
+                        <label ng-bind="item.name"></label><span>客观题练习</span>
+                    </h4>
+                    <p ng-bind="item.remark"></p>
+                    <div class="details">
+                        <label><span ng-bind="item.peoples"></span>人在学习</label>
+                    </div>
+                    <button class="btn btn-success btn-lg mybtn11" ng-click="joinPractice(item)">开始练习</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

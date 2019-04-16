@@ -1,0 +1,33 @@
+{
+  "name": "angular-motion",
+  "description": "AngularMotion - Fancy CSS3 animations for AngularJS",
+  "version": "0.4.4",
+  "keywords": [
+    "angular",
+    "animation"
+  ],
+  "main": "dist/angular-motion.css",
+  "homepage": "http://mgcrea.github.io/angular-motion",
+  "bugs": "https://github.com/mgcrea/angular-motion/issues",
+  "author": {
+    "name": "Olivier Louvignes",
+    "email": "olivier@mg-crea.com",
+    "url": "https://github.com/mgcrea"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgcrea/angular-motion.git"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "factory-angular-channels": "^0.10.0",
+    "gulp-pre": "^4.0.0-alpha.4",
+    "ng-factory": "^1.1",
+    "undertaker-lib-tasks": "^0.5.3"
+  },
+  "scripts": {
+    "start": "gulp serve",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  }
+}

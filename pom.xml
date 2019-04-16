@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.4.RELEASE</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tangyi</groupId>
+	<artifactId>online-exam</artifactId>
+	<version>0.0.1-RELEASE</version>
+	<packaging>pom</packaging>
+	<name>online-exam</name>
+	<description>online-exam</description>
+
+	<properties>
+		<java.home>D:\Java\jdk1.8.0_191</java.home>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Finchley.M7</spring-cloud.version>
+		<driud.version>1.0.20</driud.version>
+		<springfox.version>2.2.2</springfox.version>
+		<pagehelper.version>1.2.3</pagehelper.version>
+		<fastjson.version>1.2.29</fastjson.version>
+		<commons-utils.version>1.9.3</commons-utils.version>
+		<commons-fileupload.version>1.3.3</commons-fileupload.version>
+		<jjwt.version>0.7.0</jjwt.version>
+		<mybatis.version>1.1.1</mybatis.version>
+		<common.lang.version>2.6</common.lang.version>
+		<javax.persistence.version>1.0</javax.persistence.version>
+	</properties>
+
+	<modules>
+		<module>service-registry</module>
+		<module>api-gateway</module>
+		<module>auth-service</module>
+		<module>exam-service</module>
+		<module>admin-service</module>
+		<module>config-server</module>
+		<module>monitor-service</module>
+	</modules>
+
+	<!-- 管理依赖  -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR6</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerArguments>
+						<bootclasspath>${java.home}/jre/lib/rt.jar</bootclasspath>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!--如果没有这个配置，devtools不会起作用-->
+					<fork>true</fork>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

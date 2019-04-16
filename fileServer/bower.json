@@ -1,0 +1,10 @@
+{
+  "name": "exam-file-server",
+  "description": "exam file server",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular-morris": "angular-morris-chart#^1.3.0"
+  }
+}

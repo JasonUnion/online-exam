@@ -1,0 +1,64 @@
+<div id="papers" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 text-center" style="color: black;">
+            <h1>在线考试</h1>
+        </div>
+        <br>
+        <br>
+        <div class="col-sm-offset-3 col-sm-6">
+            <div class="row pull-left publish">
+                <i class="fa fa-paper-plane-o"></i> 考试记录
+            </div>
+            <br>
+            <hr>
+            <div class="dataTables_wrapper form-inline dt-bootstrap" st-table="myPapers"  st-pipe="callServerMy">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table  class="table table-striped table-hover dataTable" role="grid">
+                            <thead>
+                            <tr role="row">
+                                <th>考试名称</th>
+                                <th>考试时间</th>
+                                <th>考试类型</th>
+                                <th>考试人</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody ng-show="!isMyLoading">
+                            <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in myPapers" role="row">
+                                <td ng-bind="row.paperName"></td>
+                                <td ng-bind="row.answerTime"></td>
+                                <td>
+                                    <span ng-show="row.type=='official'">正式考试</span>
+                                    <span ng-show="row.type=='simulate'">模拟考试</span>
+                                    <span ng-show="row.type=='practice'">在线练习</span>
+                                </td>
+                                <td ng-bind="row.answerUser"></td>
+                                <td>
+                                    <a class="btn btn-info btn-sm" ng-click="info(row)" ng-show="row.checked == 'true'">查看</a>
+                                    <a class="btn btn-warning btn-sm" ng-show="row.checked == 'false'" ng-disabled="row.checked == 'false'">待查阅</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <tbody ng-show="isMyLoading">
+                            <tr role="row">
+                                <td class="text-center" colspan="12"><h4>加载中 ... </h4></td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="12" class="text-center">
+                                    <div st-pagination="" st-items-by-page="10" st-template="components/recordList/recordList.pagination.html"></div>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                        <div class="text-center dataTables_info" ng-show="myPapers==null && !isMyLoading">
+                            没有更多记录
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

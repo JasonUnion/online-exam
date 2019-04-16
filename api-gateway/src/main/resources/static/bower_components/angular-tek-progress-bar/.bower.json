@@ -1,0 +1,46 @@
+{
+  "name": "angular-tek-progress-bar",
+  "version": "0.2.0",
+  "authors": [
+    "Alexander Strochkov <tek@inbox.ru>"
+  ],
+  "homepage": "https://github.com/TekVanDo/Angular-Tek-Progress-bar",
+  "description": "angular-tek-progress-bar is an AngularJS module to create and controls progress bar.",
+  "main": "dist/tek.progress-bar.min.js",
+  "keywords": [
+    "angular",
+    "progress",
+    "bar",
+    "loading",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "angular": "^1.2.21"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.4",
+    "bootstrap": "~3.3.5",
+    "angular-strap": "~2.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TekVanDo/Angular-Tek-Progress-bar.git"
+  },
+  "_release": "0.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.0",
+    "commit": "9c61d9afe5c0ab7724b7998e50c306a39e2e21ad"
+  },
+  "_source": "https://github.com/TekVanDo/Angular-Tek-Progress-bar.git",
+  "_target": "^0.2.0",
+  "_originalSource": "angular-tek-progress-bar",
+  "_direct": true
+}

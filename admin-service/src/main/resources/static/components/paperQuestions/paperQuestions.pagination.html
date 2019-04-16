@@ -1,0 +1,17 @@
+<nav ng-show="pages.length >= 2">
+    <ul class="pagination">
+        <li>
+            <a ng-click="selectPage(1)"><<</a>
+        </li>
+        <li>
+            <a ng-click="selectPage(currentPage - 1)">&lt;</a>
+        </li>
+        <li>
+            <a><page-select></page-select> {{currentPage}}</a>
+        </li>
+        <li>
+            <a ng-click="selectPage(currentPage + 1)">&gt;</a>
+        </li>
+        <li><a ng-click="selectPage(numPages)"> >> </a></li>
+    </ul>
+</nav>

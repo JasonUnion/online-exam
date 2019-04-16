@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tangyi.mapper.GradeMapper">
+    <resultMap id="gradeStudentMap" type="com.tangyi.domain.Grade">
+        <id property="id" column="id"/>
+        <result property="gradeName" column="grade_name"/>
+        <collection property="students" ofType="com.tangyi.domain.Student">
+            <result column="id" property="id"/>
+            <result column="student_name" property="studentName"/>
+            <result column="gender" property="gender"/>
+            <result column="examNumber" property="examNumber"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="gradeClassNameMap" type="com.tangyi.domain.Grade">
+        <id property="id" column="id"/>
+        <result property="gradeName" column="grade_name"/>
+        <result property="sort" column="sort"/>
+        <collection property="classNames" ofType="com.tangyi.domain.ClassName">
+            <result column="id" property="id"/>
+            <result column="class_name" property="className"/>
+        </collection>
+    </resultMap>
+
+    <select id="findStudentByName" parameterType="String" resultMap="gradeStudentMap">
+        select g.*
+        ,s.*
+        from grade g
+        LEFT JOIN grade_student gs on g.id= gs.grade_id
+        LEFT JOIN student s on gs.student_id=s.id
+        where grade_name= #{name}
+    </select>
+
+    <select id="findClassNameByName" parameterType="String" resultMap="gradeClassNameMap">
+        select g.*
+        ,c.*
+        from grade g
+        LEFT JOIN grade_classname gc on g.id= gc.grade_id
+        LEFT JOIN classname c on gc.classname_id=c.id
+        where grade_name= #{name}
+    </select>
+
+    <select id="findAll" resultMap="gradeClassNameMap">
+        select g.*
+        ,c.*
+        from grade g
+        LEFT JOIN grade_classname gc on g.id= gc.grade_id
+        LEFT JOIN classname c on gc.classname_id=c.id ORDER BY g.sort DESC
+    </select>
+
+    <select id="findById" resultMap="gradeClassNameMap">
+        select g.*
+        ,c.*
+        from grade g
+        LEFT JOIN grade_classname gc on g.id= gc.grade_id
+        LEFT JOIN classname c on gc.classname_id=c.id
+        where g.id= #{id}
+    </select>
+</mapper>

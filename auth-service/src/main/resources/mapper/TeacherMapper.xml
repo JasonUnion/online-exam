@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tangyi.mapper.TeacherMapper">
+    <resultMap id="teacherGradeMap" type="com.tangyi.domain.Teacher">
+        <id property="id" column="id"/>
+        <result property="teacherName" column="teacher_name"/>
+        <collection property="grades" ofType="com.tangyi.domain.Grade">
+            <result column="id" property="id"/>
+            <result column="grade_name" property="gradeName"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="teacherStudentMap" type="com.tangyi.domain.Teacher">
+        <id property="id" column="id"/>
+        <result property="teacherName" column="teacher_name"/>
+        <collection property="students" ofType="com.tangyi.domain.Student">
+            <result column="id" property="id"/>
+            <result column="student_name" property="studentName"/>
+            <result column="gender" property="gender"/>
+            <result column="examNumber" property="examNumber"/>
+        </collection>
+    </resultMap>
+
+    <select id="findGradeByName" parameterType="String" resultMap="teacherGradeMap">
+        select t.*
+        ,g.*
+        from teacher t
+        LEFT JOIN teacher_grade tg on t.id= tg.teacher_id
+        LEFT JOIN grade g on tg.grade_id=g.id
+        where teacher_name= #{name}
+    </select>
+
+    <select id="findStudentByName" parameterType="String" resultMap="teacherStudentMap">
+        select t.*
+        ,s.*
+        from teacher t
+        LEFT JOIN teacher_student ts on t.id= ts.teacher_id
+        LEFT JOIN student s on ts.student_id=s.id
+        where teacher_name= #{name}
+    </select>
+
+</mapper>
