@@ -2,7 +2,8 @@ package com.tangyi.dto;
 
 /**
  * 缓存DTO层， 封装缓存内容
- * Created by tangyi on 2017/3/16.
+ * @author tangyi
+ * @date 2017/3/16
  */
 public class CacheDto {
     private String  status;
